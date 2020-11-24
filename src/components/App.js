@@ -8,7 +8,7 @@ import { ThemeProvider } from 'styled-components';
 import theme from '../utilities/theme';
 
 import SearchBar from './SearchBar/SearchBar';
-import SearchPage from './pages/SearchPage';
+import SearchPage from './SearchPage/SearchPage';
 import MoviePage from './MoviePage/MoviePage';
 
 const App = () => {

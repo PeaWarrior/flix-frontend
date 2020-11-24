@@ -23,7 +23,7 @@ const SearchBar = ({ setSearch }) => {
           totalResults: data.total_results
         }))
       })
-    history.push('/')
+    history.push(`/search/${query}`);
   }
 
   return (
