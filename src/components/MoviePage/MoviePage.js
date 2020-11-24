@@ -92,4 +92,4 @@ const initialState = {
   poster: null,
 }
 
-export default MoviePage
+export default MoviePage;

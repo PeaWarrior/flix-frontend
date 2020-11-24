@@ -25,6 +25,10 @@ export const StyledMovieSection = styled.section`
     flex-direction: column;
     align-items: center;
 
+    h1 {
+      margin-top: 1rem;
+    }
+
     img {
       padding: 0;
       width: 100%;
@@ -39,7 +43,7 @@ export const StyledMetaList = styled.ul`
   display: flex;
   flex-direction: row;
   li {
-    margin-right: 1rem;
+    margin-right: 1.25rem;
     width: fit-content;
     display: flex;
     flex-direction: column;
@@ -59,10 +63,11 @@ export const StyledMetaList = styled.ul`
 `
 
 export const StyledButton = styled.button`
-  margin-right: 0.5rem;
-  background: transparent;
-  border: none;
+  margin-right: 1rem;
+  font-size: 1rem;
   color: ${({ color }) => color};
+  border: none;
+  background: transparent;
   outline: none;
 
   &:hover {
