@@ -2,7 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { URL } from '../../utilities/constants';
 
-import { StyledMovieSection, StyledMetaItem, StyledMetaList, StyledButton } from './MoviePage.styled';
+import { 
+  StyledMovieSection, 
+  StyledMetaList, 
+  StyledButton 
+} from './MoviePage.styled';
+import { FaRegThumbsUp, FaRegThumbsDown } from 'react-icons/fa';
 
 const MoviePage = () => {
   const { id } = useParams();
@@ -20,38 +25,58 @@ const MoviePage = () => {
     const metaData = ['director', 'runtime', 'released'];
 
     return metaData.map(data => (
-        <StyledMetaItem key={data}>
+        <li key={data}>
           <h4>{data}</h4>
           <p>{state[data]}</p>
-        </StyledMetaItem>
+        </li>
     ));
   };
 
-  const handleClick = (event) => {
-    console.log(event.target.id)
+  const updateLikes = (change) => {
     fetch(`${URL}movies/${id}`, {
-      method: 'PATCH',
-      headers: {
-        'Content-Type': 'application/json'
-      },
-      body: JSON.stringify({
-        [event.target.id]: 1
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          change: change
+        })
       })
-    })
-    .then(resp => resp.json())
-    .then(data => console.log(data))
+      .then(resp => resp.json())
+      .then(data => {
+        setState(prevState => ({
+          ...prevState,
+          ...data
+        }))
+      })
+  }
+
+  const handleClickLikes = () => {
+    updateLikes('like');
+  };
+
+  const handleClickDislikes = () => {
+    updateLikes('dislike');
   };
 
   return (
     <StyledMovieSection>
       <img src={state.poster} alt="" />
-      <h1>{state.title}</h1>
-      <StyledMetaList>
-        {renderMetaData()}
-      </StyledMetaList>
-      <StyledButton onClick={handleClick} id="like">Like</StyledButton>
-      <StyledButton onClick={handleClick} id="dislike">Dislike</StyledButton>
-      <p>{state.overview}</p>
+      <div>
+        <h1>{state.title}</h1>
+        <hr/>
+        <StyledMetaList>{renderMetaData()}</StyledMetaList>
+        <StyledButton onClick={handleClickLikes} color={'green'}>
+          <FaRegThumbsUp />
+          {state.likes}
+        </StyledButton> 
+
+        <StyledButton onClick={handleClickDislikes} color={'red'}>
+          <FaRegThumbsDown />
+          {state.dislikes}
+        </StyledButton>
+        <p>{state.overview}</p>
+      </div>
     </StyledMovieSection>
   )
 }
