@@ -1,5 +1,9 @@
 import styled from 'styled-components';
 
 export const StyledMovieContainer = styled.section`
-  border: 1px solid green;
+  margin: auto;
+  width: 100%;
+  max-width: 1024px;
+  display: flex;
+  flex-wrap: wrap;
 `

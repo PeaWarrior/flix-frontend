@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { URL } from '../../utilities/constants';
 
 import { StyledMovieContainer } from './SearchPage.styled';
+import MovieCard from './MovieCard';
 
 const MovieContainer = () => {
   const { query } = useParams();
@@ -29,16 +30,15 @@ const MovieContainer = () => {
     };
   }
 
-  // const renderMovieCards = movies.map(movie => {
-  //   return (
-  //     <div></div>
-  //     // <MovieCard {...movie} key={movie.id} />
-  //   )
-  // })
+  const renderMovieCards = movies.map(movie => {
+    return (
+      <MovieCard key={movie.id} {...movie} />
+    )
+  })
 
   return (
     <StyledMovieContainer>
-      {/* {renderMovieCards} */}
+      {renderMovieCards}
     </StyledMovieContainer>
   )
 };

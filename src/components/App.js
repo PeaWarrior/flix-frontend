@@ -6,6 +6,7 @@ import {
 } from "react-router-dom";
 import { ThemeProvider } from 'styled-components';
 import theme from '../utilities/theme';
+import GlobalStyles from '../utilities/GlobalStyles';
 
 import SearchBar from './SearchBar/SearchBar';
 import SearchPage from './SearchPage/SearchPage';
@@ -22,6 +23,7 @@ const App = () => {
 
   return (
     <Router>
+      <GlobalStyles />
       <ThemeProvider theme={theme}>
 
         <SearchBar setSearch={setSearch} />
