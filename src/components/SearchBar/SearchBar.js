@@ -10,20 +10,20 @@ const SearchBar = ({ setSearch }) => {
   };
 
   const handleSubmit = (event) => {
-  //   event.preventDefault();
-  //   fetch(`${URL}search/${query}`)
-  //     .then(resp => resp.json())
-  //     .then(data => {
-  //       setSearch(prevState => ({
-  //         ...prevState,
-  //         query: query,
-  //         page: data.page,
-  //         movies: data.results,
-  //         totalPages: data.total_pages,
-  //         totalResults: data.total_results
-  //       }))
-  //     })
-  //   history.push('/search')
+    event.preventDefault();
+    fetch(`${URL}search/${query}`)
+      .then(resp => resp.json())
+      .then(data => {
+        setSearch(prevState => ({
+          ...prevState,
+          query: query,
+          page: data.page,
+          movies: data.results,
+          totalPages: data.total_pages,
+          totalResults: data.total_results
+        }))
+      })
+    history.push('/')
   }
 
   return (

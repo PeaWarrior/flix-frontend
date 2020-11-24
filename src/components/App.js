@@ -27,9 +27,7 @@ const App = () => {
         <SearchBar setSearch={setSearch} />
         <Switch>
           <Route path='/movie/:id' component={MoviePage} />
-          <Route exact path='/search'>
-            <SearchPage {...search} />
-          </Route>
+          <Route path='/search/:query' component={SearchPage} />
           <Route exact path='/'>
             HOME
           </Route>
