@@ -1,9 +1,11 @@
 import React from 'react';
+import MoviesContainer from '../MoviesContainer/MoviesContainer';
 
-const SearchPage = () => {
+const SearchPage = ({ query, totalPages, page, movies, totalResults }) => {
   return (
     <div>
-      SEARCH PAGE
+      <h6>Showing results for "{query}"</h6>
+      <MoviesContainer movies={movies} />
     </div>
   )
 }
