@@ -18,6 +18,10 @@ export const StyledMovieSection = styled.section`
     padding: 0 1rem;
   }
 
+  p {
+    margin-top: 3rem;
+  }
+
   @media (max-width: 768px) {
     flex-direction: column;
     align-items: center;

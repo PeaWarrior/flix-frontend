@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { URL } from '../../utilities/constants';
 
 import StyledHomePageSection from './HomePage.styled';
-import MovieCard from '../SearchPage/MovieCard';
+import MovieCard from '../MovieCard/MovieCard';
 
 const HomePage = () => {
   const [nowPlaying, setNowPlaying] = useState([]);

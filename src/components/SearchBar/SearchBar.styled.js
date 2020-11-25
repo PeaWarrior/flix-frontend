@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export const StyledSearchBarContainer = styled.section`
-  padding: 3rem 3rem 0 3rem;
   justify-content: center;
 `
 
