@@ -4,6 +4,10 @@ export const StyledMovieSection = styled.section`
   display: flex;
   flex-direction: column;
 
+  h3 {
+    padding-left: 1rem;
+  }
+
   .query-movie {
     margin-bottom: 2rem;
     display: flex;
@@ -31,12 +35,12 @@ export const StyledMovieSection = styled.section`
       margin-bottom: 4rem;
       display: flex;
       flex-direction: row;
+
+      svg {
+        pointer-events: none;
+      }
     }
 
-    p {
-      margin-top: 2rem;
-    }
-    
     @media (max-width: 768px) {
       flex-direction: column;
       align-items: center;

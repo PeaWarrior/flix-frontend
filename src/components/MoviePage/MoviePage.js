@@ -35,7 +35,8 @@ const MoviePage = () => {
     ));
   };
 
-  const updateLikes = (change) => {
+  const handleClickLikes = (event) => {
+    const change = event.target.getAttribute('data-liketype');
     fetch(`${URL}movies/${id}`, {
         method: 'PATCH',
         headers: {
@@ -54,41 +55,47 @@ const MoviePage = () => {
       })
   }
 
-  const handleClickLikes = () => {
-    updateLikes('like');
-  };
-
-  const handleClickDislikes = () => {
-    updateLikes('dislike');
-  };
-
   return (
     <>
     <StyledMovieSection>
       <div className='query-movie'>
         <img src={movie.poster} alt={`poster of ${movie.title}`} />
         <div className='content'>
+
           <div>
             <h1>{movie.title}</h1>
             <hr/>
             <StyledMetaList>{renderMetaData()}</StyledMetaList>
             <p>{movie.overview}</p>
           </div>
+
           <div className='buttons'>
-            <StyledButton onClick={handleClickLikes} color={'green'}>
+            <StyledButton 
+              onClick={handleClickLikes} 
+              data-liketype='like' 
+              color={'green'}
+            >
               <FaRegThumbsUp />
               {movie.likes}
             </StyledButton> 
 
-            <StyledButton onClick={handleClickDislikes} color={'red'}>
+            <StyledButton 
+              onClick={handleClickLikes} 
+              data-liketype='dislike' 
+              color={'red'}
+            >
               <FaRegThumbsDown />
               {movie.dislikes}
             </StyledButton>
           </div>
+
         </div>
       </div>
-      <h3>Similar Movies</h3>
+
+      <h3>Recommended Movies</h3>
+
       <MoviesCarousel movies={recommendedMovies} />
+      
     </StyledMovieSection>
     </>
   )
