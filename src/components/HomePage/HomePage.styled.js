@@ -19,7 +19,6 @@ const StyledHomePageSection = styled.section`
   h3 {
     margin-top: 3rem;
     width: fit-content;
-    text-align: center;
   }
 
   .movies-carousel {
@@ -30,9 +29,8 @@ const StyledHomePageSection = styled.section`
     display: flex;
     flex-direction: row;
     overflow-x: auto;
-    border-top: 1px solid ${({ theme }) => theme.secondaryAccent};
-    border-bottom: 1px solid ${({ theme }) => theme.secondaryAccent};
-    /* border-radius: 10px; */
+    border-top: 3px solid ${({ theme }) => theme.primaryAccent};
+    border-bottom: 3px solid ${({ theme }) => theme.primaryAccent};
 
     div {
       margin: 0;

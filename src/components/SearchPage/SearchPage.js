@@ -12,7 +12,7 @@ const MovieContainer = () => {
   const [page, setPage] = useState({
     total: null,
     current: null,
-  })
+  });
 
   useEffect(() => {
     fetch(`${URL}search/${query}/1`)
@@ -21,7 +21,6 @@ const MovieContainer = () => {
         const foundMovies = data.results.map(parseMovieData);
         setMovies(foundMovies);
         setPage({
-          ...page,
           total: data.total_pages,
           current: data.page
         })
