@@ -4,7 +4,7 @@ import { useHistory } from 'react-router-dom';
 import { StyledSearchBarContainer, StyledSearchBar } from './SearchBar.styled';
 import { FaSearch } from 'react-icons/fa';
 
-const SearchBar = ({ setSearch }) => {
+const SearchBar = () => {
   const history = useHistory();
   const [query, setQuery] = useState('');
 
@@ -14,18 +14,6 @@ const SearchBar = ({ setSearch }) => {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    // fetch(`${URL}search/${query}`)
-    //   .then(resp => resp.json())
-    //   .then(data => {
-    //     setSearch(prevState => ({
-    //       ...prevState,
-    //       query: query,
-    //       page: data.page,
-    //       movies: data.results,
-    //       totalPages: data.total_pages,
-    //       totalResults: data.total_results
-    //     }))
-    //   })
     history.push(`/search/${query}`);
   }
 
