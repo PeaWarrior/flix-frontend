@@ -20,5 +20,12 @@ const GlobalStyles = createGlobalStyle`
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
     text-rendering: optimizeLegibility;
   }
+
+  section {
+    margin: auto;
+    width: 100%;
+    max-width: 1024px;
+    display: flex;
+  }
 `
 export default GlobalStyles;
