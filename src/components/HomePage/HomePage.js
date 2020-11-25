@@ -28,12 +28,12 @@ const HomePage = () => {
       <h2>Welcome to <span>FLIX</span>.</h2>
       <h2>Millions of movies. Explore now.</h2>
 
-      <h4>Now Playing</h4>
+      <h3>Now Playing</h3>
       <div className='movies-carousel'>
         {renderMovieCards(nowPlaying)}
       </div>
 
-      <h4>Popular</h4>
+      <h3>Popular</h3>
       <div className='movies-carousel'>
         {renderMovieCards(popular)}
       </div>
