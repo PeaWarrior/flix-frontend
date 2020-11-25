@@ -20,26 +20,6 @@ const StyledHomePageSection = styled.section`
     margin-top: 3rem;
     width: fit-content;
   }
-
-  .movies-carousel {
-    margin-bottom: 2rem;
-    padding: 1rem;
-    width: 100%;
-    height: 500px;
-    display: flex;
-    flex-direction: row;
-    overflow-x: auto;
-    border-top: 3px solid ${({ theme }) => theme.primaryAccent};
-    border-bottom: 3px solid ${({ theme }) => theme.primaryAccent};
-
-    div {
-      margin: 0;
-    }
-
-    img {
-      width: 250px;
-    }
-  }
 `
 
 export default StyledHomePageSection;

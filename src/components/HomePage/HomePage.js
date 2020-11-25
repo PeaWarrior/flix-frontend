@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { URL } from '../../utilities/constants';
 
 import StyledHomePageSection from './HomePage.styled';
-import MovieCard from '../MovieCard/MovieCard';
+import MoviesCarousel from '../MoviesCarousel/MoviesCarousel';
 
 const HomePage = () => {
   const [nowPlaying, setNowPlaying] = useState([]);
@@ -17,26 +17,16 @@ const HomePage = () => {
       })
   }, []);
 
-  const renderMovieCards = (movies) => {
-    return movies.map(movie => (
-      <MovieCard key={movie.id} {...movie} />
-    ))
-  }
-
   return (
     <StyledHomePageSection>
       <h2>Welcome to <span>FLIX</span>.</h2>
       <h2>Millions of movies. Explore now.</h2>
 
       <h3>Now Playing</h3>
-      <div className='movies-carousel'>
-        {renderMovieCards(nowPlaying)}
-      </div>
+      <MoviesCarousel movies={nowPlaying} />
 
       <h3>Popular</h3>
-      <div className='movies-carousel'>
-        {renderMovieCards(popular)}
-      </div>
+      <MoviesCarousel movies={popular} />
     </StyledHomePageSection>
   );
 }

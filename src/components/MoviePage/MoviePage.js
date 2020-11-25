@@ -7,17 +7,20 @@ import {
   StyledMetaList, 
   StyledButton 
 } from './MoviePage.styled';
+import MoviesCarousel from '../MoviesCarousel/MoviesCarousel';
 import { FaRegThumbsUp, FaRegThumbsDown } from 'react-icons/fa';
 
 const MoviePage = () => {
   const { id } = useParams();
-  const [state, setState] = useState(initialState);
+  const [movie, setMovie] = useState(initialMovie);
+  const [recommendedMovies, setRecommendedMovies] = useState([]);
 
   useEffect(() => {
     fetch(`${URL}movies/${id}`)
       .then(resp => resp.json())
       .then(data => {
-        setState({...data});
+        setMovie({...data.movie});
+        setRecommendedMovies([...data.recommended]);
       })
   }, []);
 
@@ -27,7 +30,7 @@ const MoviePage = () => {
     return metaData.map(data => (
         <li key={data}>
           <h4>{data}</h4>
-          <p>{state[data]}</p>
+          <p>{movie[data]}</p>
         </li>
     ));
   };
@@ -44,8 +47,8 @@ const MoviePage = () => {
       })
       .then(resp => resp.json())
       .then(data => {
-        setState(prevState => ({
-          ...prevState,
+        setMovie(prevMovie => ({
+          ...prevMovie,
           ...data
         }))
       })
@@ -60,28 +63,38 @@ const MoviePage = () => {
   };
 
   return (
+    <>
     <StyledMovieSection>
-      <img src={state.poster} alt="" />
-      <div>
-        <h1>{state.title}</h1>
-        <hr/>
-        <StyledMetaList>{renderMetaData()}</StyledMetaList>
-        <StyledButton onClick={handleClickLikes} color={'green'}>
-          <FaRegThumbsUp />
-          {state.likes}
-        </StyledButton> 
+      <div className='query-movie'>
+        <img src={movie.poster} alt={`poster of ${movie.title}`} />
+        <div className='content'>
+          <div>
+            <h1>{movie.title}</h1>
+            <hr/>
+            <StyledMetaList>{renderMetaData()}</StyledMetaList>
+            <p>{movie.overview}</p>
+          </div>
+          <div className='buttons'>
+            <StyledButton onClick={handleClickLikes} color={'green'}>
+              <FaRegThumbsUp />
+              {movie.likes}
+            </StyledButton> 
 
-        <StyledButton onClick={handleClickDislikes} color={'red'}>
-          <FaRegThumbsDown />
-          {state.dislikes}
-        </StyledButton>
-        <p>{state.overview}</p>
+            <StyledButton onClick={handleClickDislikes} color={'red'}>
+              <FaRegThumbsDown />
+              {movie.dislikes}
+            </StyledButton>
+          </div>
+        </div>
       </div>
+      <h3>Similar Movies</h3>
+      <MoviesCarousel movies={recommendedMovies} />
     </StyledMovieSection>
+    </>
   )
 }
 
-const initialState = {
+const initialMovie = {
   movie_id: null,
   title: null,
   director: null,

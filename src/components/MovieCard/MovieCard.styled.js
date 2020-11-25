@@ -12,14 +12,14 @@ export const StyledMovieCard = styled.div`
   }
 
   img {
-    width: 100%;
+    width: 250px;
     height: 371px;
     box-sizing: border-box;
     border: 1px grey solid;
   }
 
   .placeholder {
-    width: 100%;
+    width: 250px;
     height: 371px;
     box-sizing: border-box;
     border: 1px grey solid;

@@ -2,38 +2,55 @@ import styled from 'styled-components';
 
 export const StyledMovieSection = styled.section`
   display: flex;
-  
-  h1 {
-    margin: 0;
-    font-size: clamp(2rem, 2.5vw, 3rem);
-  }
-  
-  img {
-    padding: 1rem;
-    width: 15rem;
-    border-right: 1px solid grey;
-  }
-  
-  div {
-    padding: 0 1rem;
-  }
+  flex-direction: column;
 
-  p {
-    margin-top: 3rem;
-  }
-
-  @media (max-width: 768px) {
-    flex-direction: column;
-    align-items: center;
+  .query-movie {
+    margin-bottom: 2rem;
+    display: flex;
 
     h1 {
-      margin-top: 1rem;
+      margin: 0;
+      font-size: clamp(2rem, 2.5vw, 3rem);
+    }
+    
+    img {
+      padding: 1rem;
+      width: 250px;
+      height: 371px;
+      border-right: 1px solid grey;
+    }
+    
+    .content {
+      padding: 0 1rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
     }
 
-    img {
-      padding: 0;
-      width: 100%;
-      border: none;
+    .buttons {
+      margin-bottom: 4rem;
+      display: flex;
+      flex-direction: row;
+    }
+
+    p {
+      margin-top: 2rem;
+    }
+    
+    @media (max-width: 768px) {
+      flex-direction: column;
+      align-items: center;
+      
+      h1 {
+        margin-top: 1rem;
+      }
+      
+      img {
+        padding: 0;
+        width: 250px;
+        height: 371px;
+        border: none;
+      }
     }
   }
 `
@@ -64,7 +81,11 @@ export const StyledMetaList = styled.ul`
 `
 
 export const StyledButton = styled.button`
-  margin-right: 1rem;
+  margin-right: 2rem;
+  width: 3.5rem;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
   font-size: 1rem;
   color: ${({ color }) => color};
   border: none;
