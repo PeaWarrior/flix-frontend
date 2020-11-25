@@ -11,6 +11,7 @@ import GlobalStyles from '../utilities/GlobalStyles';
 
 import Header from './Header/Header';
 import SearchBar from './SearchBar/SearchBar';
+import HomePage from './HomePage/HomePage';
 import SearchPage from './SearchPage/SearchPage';
 import MoviePage from './MoviePage/MoviePage';
 
@@ -33,9 +34,7 @@ const App = () => {
         <Switch>
           <Route path='/movie/:id' component={MoviePage} />
           <Route path='/search/:query' component={SearchPage} />
-          <Route exact path='/'>
-            HOME
-          </Route>
+          <Route exact path='/' component={HomePage} />
         </Switch>
       </ThemeProvider>
     </Router>
