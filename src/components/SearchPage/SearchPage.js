@@ -20,13 +20,13 @@ const MovieContainer = () => {
         const foundMovies = data.results.map(parseMovieData);
         setMovies(foundMovies);
       })
-  }, []);
+  }, [query]);
 
   const parseMovieData = (movieData) => {
     return {
       id: movieData.id,
       title: movieData.title,
-      poster: `http://image.tmdb.org/t/p/w500${movieData.poster_path}`
+      poster: movieData.poster_path ? `http://image.tmdb.org/t/p/w500${movieData.poster_path}` : null
     };
   }
 

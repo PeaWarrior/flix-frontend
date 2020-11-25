@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const StyledSearchBarContainer = styled.section`
   padding: 3rem;
-  /* flex-direction: row; */
+  justify-content: center;
 `
 
 export const StyledSearchBar = styled.form`
@@ -26,7 +26,9 @@ export const StyledSearchBar = styled.form`
     border: 1px solid ${({ theme }) => theme.primaryFont};
     border-radius: 0 10px 10px 0;
     border-left: none;
+
+    &:hover {
+      cursor: pointer;
+    }
   }
 `
-
-// export default StyledSearchBar;

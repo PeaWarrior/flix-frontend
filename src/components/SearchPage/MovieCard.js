@@ -11,7 +11,11 @@ const MovieCard = ({ id, title, poster }) => {
 
   return (
     <StyledMovieCard onClick={handleClick}>
-      <img src={poster} alt={title} />
+      {poster ? 
+        <img src={poster} alt={title} /> 
+        : 
+        <div className="placeholder" />
+      }
       <h4>{title}</h4>
     </StyledMovieCard>
   )
