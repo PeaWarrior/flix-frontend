@@ -1,6 +1,6 @@
 import React from 'react';
 
-import StyledPageCommands from './PageCommands.styled';
+import { StyledPageCommands, StyledPageButton } from './PageCommands.styled';
 import { 
   FiChevronsLeft, 
   FiChevronLeft, 
@@ -12,38 +12,38 @@ const PageCommands = ({ total, current, handleChangePageClick }) => {
 
   return (
     <StyledPageCommands>
-      <div className='commands'>
-        <button 
+      <div>
+        <StyledPageButton 
           onClick={handleChangePageClick}
           data-page={1}
           disabled={current > 1 ? false : true}
         >
           <FiChevronsLeft />
-        </button>
-        <button
+        </StyledPageButton>
+        <StyledPageButton
           onClick={handleChangePageClick}
           data-page={current - 1}
           disabled={current > 1 ? false : true}
         >
           <FiChevronLeft />
-        </button>
+        </StyledPageButton>
       </div>
-      <p>Showing page {current} of {total}</p>
-      <div className='commands'>
-        <button
+      <p>Page {current} of {total}</p>
+      <div>
+        <StyledPageButton
           onClick={handleChangePageClick}
           data-page={current + 1}
           disabled={current < total ? false : true}
         >
           <FiChevronRight />
-        </button>
-        <button
+        </StyledPageButton>
+        <StyledPageButton
           onClick={handleChangePageClick}
           data-page={total}
           disabled={current < total ? false : true}
         >
           <FiChevronsRight />
-        </button>
+        </StyledPageButton>
       </div>
     </StyledPageCommands>
   )
