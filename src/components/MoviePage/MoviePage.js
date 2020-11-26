@@ -22,7 +22,7 @@ const MoviePage = () => {
         setMovie({...data.movie});
         setRecommendedMovies([...data.recommended]);
       })
-  }, []);
+  }, [id]);
 
   const renderMetaData = () => {
     const metaData = ['director', 'runtime', 'released'];

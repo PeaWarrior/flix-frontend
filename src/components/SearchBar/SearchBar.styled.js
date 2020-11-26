@@ -26,6 +26,7 @@ export const StyledSearchBar = styled.form`
       font-size: 1rem;
       color: ${({ theme }) => theme.secondaryAccent};
       border: none;
+      outline: none;
       
       &:hover {
         cursor: pointer;
