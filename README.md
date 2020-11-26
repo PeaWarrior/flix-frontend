@@ -2,8 +2,6 @@
 
 FLIX is a movie database query that allows users to like and dislike films. 
 
-Watch the **[Demo]()**.
-
 ## Table of Contents
 * [Getting Started](#getting-started)
 * [Features](#features)
