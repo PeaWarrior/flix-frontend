@@ -39,14 +39,14 @@ Watch the **[Demo]()**.
 
 ## Features
 ### Look through movies that are popular and now playing.
-![homepage](https://media.giphy.com/media/6iDbSO8abFRM00K2NY/giphy.gif)
+![homepage](https://media.giphy.com/media/CsloiFXdJg4SHPb2Ia/giphy.gif)
 
 
 ### Search through millions of movies.
 ![search](https://media.giphy.com/media/lI3molDlthYvLCH4IJ/giphy.gif)
 
 ### Like and dislike movies.
-![like](https://media.giphy.com/media/0HMHQdYGZtIEo4KsDs/giphy.gif)
+![like](https://media.giphy.com/media/fusIzYAIM1k7XdGoi7/giphy.gif)
 
 
 ## Tech Stack
