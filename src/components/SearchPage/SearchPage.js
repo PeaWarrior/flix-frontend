@@ -13,33 +13,45 @@ const MovieContainer = () => {
     total: null,
     current: null,
   });
+  const [error, setError] = useState();
 
   useEffect(() => {
     fetch(`${URL}search/${query}/1`)
-      .then(resp => resp.json())
-      .then(data => {
+    .then(resp => resp.json())
+    .then(data => {
+      if (data.error) {
+        setError(data.error);
+      } else {
         const foundMovies = data.results.map(parseMovieData);
         setMovies(foundMovies);
         setPage({
           total: data.total_pages,
           current: data.page
-        })
-      })
+        });
+        setError();
+      }
+    })
   }, [query]);
 
   const handleChangePageClick = (event) => {
-    fetch(`${URL}search/${query}/${event.target.getAttribute('data-page')}`)
-      .then(resp => resp.json())
-      .then(data => {
+    const pageToQuery = (event.target.getAttribute('data-page'));
+    fetch(`${URL}search/${query}/${pageToQuery}`)
+    .then(resp => resp.json())
+    .then(data => {
+      if (data.error) {
+        setError(data.error);
+      } else {
         const foundMovies = data.results.map(parseMovieData);
         setMovies(foundMovies);
         setPage({
           ...page,
           total: data.total_pages,
           current: data.page
-        })
-      })
-  }
+        });
+        setError();
+      }
+    })
+  };
 
   const parseMovieData = (movieData) => {
     return {
@@ -57,11 +69,23 @@ const MovieContainer = () => {
 
   return (
     <StyledMovieContainer>
-      <PageCommands {...page} handleChangePageClick={handleChangePageClick} />
+      {movies.length > 0 && !error ? 
+        <PageCommands {...page} handleChangePageClick={handleChangePageClick} />
+        :
+        null
+      }
       <div className='movies-list'>
-        {renderMovieCards}
+        {error ? 
+        <h2>No results for <span>{query}</span></h2>
+        : 
+        renderMovieCards 
+      }
       </div>
-      <PageCommands {...page} handleChangePageClick={handleChangePageClick} />
+      {movies.length > 0 && !error ? 
+        <PageCommands {...page} handleChangePageClick={handleChangePageClick} />
+        :
+        null
+      }
     </StyledMovieContainer>
   )
 };
