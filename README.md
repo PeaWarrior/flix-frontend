@@ -38,7 +38,15 @@ Watch the **[Demo]()**.
 4. The server will be running on port 3000. Access it in your browser at http://localhost:3000. 
 
 ## Features
+### Look through movies that are popular and now playing.
+![homepage](https://media.giphy.com/media/6iDbSO8abFRM00K2NY/giphy.gif)
 
+
+### Search through millions of movies.
+![search](https://media.giphy.com/media/lI3molDlthYvLCH4IJ/giphy.gif)
+
+### Like and dislike movies.
+![like](https://media.giphy.com/media/0HMHQdYGZtIEo4KsDs/giphy.gif)
 
 
 ## Tech Stack
