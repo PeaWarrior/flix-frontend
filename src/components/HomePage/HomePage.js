@@ -5,8 +5,8 @@ import StyledHomePageSection from './HomePage.styled';
 import MoviesCarousel from '../MoviesCarousel/MoviesCarousel';
 
 const HomePage = () => {
-  const [nowPlaying, setNowPlaying] = useState([]);
-  const [popular, setPopular] = useState([]);
+  const [nowPlaying, setNowPlaying] = useState();
+  const [popular, setPopular] = useState();
 
   useEffect(() => {
     fetch(`${URL}movies`)
@@ -22,11 +22,23 @@ const HomePage = () => {
       <h2>Welcome to <span>FLIX</span>.</h2>
       <h2>Millions of movies. Explore now.</h2>
 
-      <h3>Now Playing</h3>
-      <MoviesCarousel movies={nowPlaying} />
+      {nowPlaying ?
+        <>
+          <h3>Now Playing</h3>
+          <MoviesCarousel movies={nowPlaying} />
+        </>
+        :
+        null
+      }
 
-      <h3>Popular</h3>
-      <MoviesCarousel movies={popular} />
+      {popular ?
+        <>
+        <h3>Popular</h3>
+        <MoviesCarousel movies={popular} />
+        </>
+        :
+        null
+      }
     </StyledHomePageSection>
   );
 }

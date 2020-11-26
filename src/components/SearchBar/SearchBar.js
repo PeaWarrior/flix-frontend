@@ -21,13 +21,16 @@ const SearchBar = () => {
     <StyledSearchBarContainer>
 
     <StyledSearchBar onSubmit={handleSubmit}>
-      <label></label>
-      <input 
-        onChange={handleChange} 
-        type="text" 
-        placeholder="Search Movie" 
+      <label for='searchbar'></label>
+      <div>
+        <input 
+          onChange={handleChange} 
+          type='text' 
+          placeholder='Search Movie' 
+          name='searchbar'
         />
-      <button type="submit"><FaSearch /></button>
+        <button type='submit'><FaSearch /></button>
+      </div>
     </StyledSearchBar>
     </StyledSearchBarContainer>
   )

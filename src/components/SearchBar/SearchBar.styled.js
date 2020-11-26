@@ -9,25 +9,29 @@ export const StyledSearchBar = styled.form`
   display: flex;
   align-items: center;
 
-  input {
-    padding: 1rem;
-    font-size: 1rem;
+  div {
+    padding: 0;
     border: 1px solid ${({ theme }) => theme.primaryFont};
-    border-right: none;
-    border-radius: 10px 0 0 10px;
-    outline: none;
-  }
-  button {
-    padding: 0.6rem 1rem;
-    margin: 0;
-    font-size: 1.5rem;
-    color: ${({ theme }) => theme.primaryFont};
-    border: 1px solid ${({ theme }) => theme.primaryFont};
-    border-radius: 0 10px 10px 0;
-    border-left: none;
+    border-radius: 5px;
+    overflow: hidden;
 
-    &:hover {
-      cursor: pointer;
+    input {
+      padding: 0.5rem;
+      font-size: 1rem;
+      border: none;
+      outline: none;
+    }
+    button {
+      padding: 0.6rem;
+      font-size: 1rem;
+      color: ${({ theme }) => theme.secondaryAccent};
+      border: none;
+      
+      &:hover {
+        cursor: pointer;
+        color: ${({ theme }) => theme.primaryAccent};
+      }
     }
   }
+
 `

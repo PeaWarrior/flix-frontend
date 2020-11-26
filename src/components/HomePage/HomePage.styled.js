@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 const StyledHomePageSection = styled.section`
   width: 100vw;
+  min-height: calc(100vh - 17rem);
   flex-direction: column;
   align-items: center;
 
