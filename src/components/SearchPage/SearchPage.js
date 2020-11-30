@@ -57,7 +57,7 @@ const MovieContainer = () => {
     return {
       id: movieData.id,
       title: movieData.title,
-      poster: movieData.poster_path ? `http://image.tmdb.org/t/p/w500${movieData.poster_path}` : null
+      poster: movieData.poster_path ? `https://image.tmdb.org/t/p/w500${movieData.poster_path}` : null
     };
   }
 
