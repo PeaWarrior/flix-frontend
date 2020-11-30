@@ -21,7 +21,6 @@ const SearchBar = () => {
     <StyledSearchBarContainer>
 
     <StyledSearchBar onSubmit={handleSubmit}>
-      <label for='searchbar'></label>
       <div>
         <input 
           onChange={handleChange} 
