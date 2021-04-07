@@ -1,7 +1,8 @@
 # FLIX
 
-FLIX is a movie database query that allows users to like and dislike films. 
+FLIX is a movie database query that allows users to like and dislike films.
 
+### Live website [here](http://flix-20.herokuapp.com/).
 ### Watch the demo [here](https://youtu.be/PO6Y6HBiP8k).
 
 ## Table of Contents
